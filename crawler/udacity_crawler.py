@@ -1,35 +1,60 @@
 from bs4 import BeautifulSoup
+from urlparse import urlparse, urljoin
 import urllib
 
 def crawl_web(seed): # returns index, graph of inlinks
-    tocrawl = [seed]
+    if is_udacity(seed):
+        tocrawl = [seed]
+    else: 
+        print "This seed is not a Udacity site!"
+        return
     crawled = []
     graph = {}  # <url>, [list of pages it links to]
     index = {} 
     while tocrawl: 
         page = tocrawl.pop()
         if page not in crawled:
-            soup = get_page(page)
+            soup, url = get_page(page)
             add_page_to_index(index, page, soup)
-            outlinks = get_all_links(soup)
+            outlinks = get_all_links(soup, url)
             graph[page] = outlinks
-            union(tocrawl, outlinks)
+            add_new_links(tocrawl, outlinks)
             crawled.append(page)
     return index, graph
 
-def get_all_links(page):
+def get_all_links(page,url):
     links = []
+    page_url = urlparse(url)
+    print "Page url: " , page_url
     for link in page.find_all('a'):
-        links.append(link.get('href'))
+        link_url = link.get('href')
+        print "Found a link: ", link_url
+        #Ignore links that are 'None'.
+        if link_url == None: 
+            pass
+        #Ignore links that are internal page anchors. 
+        #Urlparse considers internal anchors 'fragment identifiers', at index 5. 
+        elif urlparse(link_url)[5] and not urlparse(link_url)[2]: 
+            pass
+        elif urlparse(link_url)[1]:
+            links.append(link_url)
+        else:
+            base = page_url[0] + '://' + page_url[1]
+            newlink = urljoin(base, link_url)
+            links.append(newlink)
     return links
 
-def union(a, b):
-    for e in b:
-        if e not in a:
-            a.append(e)
+def add_new_links(tocrawl, outlinks):
+    for link in outlinks:
+        if link not in tocrawl:
+            if is_udacity(link):
+                tocrawl.append(link)
 
 def add_page_to_index(index, url, content):
-    text = content.get_text()
+    try:
+        text = content.get_text()
+    except:
+        return
     words = text.split()
     for word in words:
         add_to_index(index, word, url)
@@ -55,7 +80,15 @@ def get_page(url):
             content = urllib.urlopen(url).read()
             return BeautifulSoup(content)
         except:
-            return ""
+            return BeautifulSoup(""), ""
+
+
+def is_udacity(url):
+    parsed_url = urlparse(url)
+    if parsed_url[1] == 'www.udacity.com':
+        return True
+    else:
+        return False
             
 cache = {}
 print crawl_web('http://www.udacity.com/cs101x/index.html')
