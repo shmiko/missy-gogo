@@ -1,0 +1,21 @@
+application: missy-go
+version: 1
+runtime: python
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /styles
+  static_dir: styles
+
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /custom404
+  static_dir: 404/static
+
+- url: .*
+  script: main.py
+
+

@@ -1,0 +1,107 @@
+.container { margin-top: 10%; }
+
+.orange { color: #F7A900; }
+
+.purple { color: red; }
+
+.well {
+  background-color: #686868;
+  background-image: -moz-linear-gradient(top, #686868, #444444);
+  background-image: -ms-linear-gradient(top, #686868, #444444);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#686868), to(#444444));
+  background-image: -webkit-linear-gradient(top, #686868, #444444);
+  background-image: -o-linear-gradient(top, #686868, #444444);
+  background-image: linear-gradient(top, #686868, #444444);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#686868', endColorstr='#444444', GradientType=0);
+}
+
+.credits { 
+  color: #ffffff;
+  opacity: .9;
+  font-size: 87%;
+}
+
+.credits a { 
+  color: #ffffff;
+  opacity: .9;
+  color: #F7A900;
+}
+
+.credits a:hover { text-decoration: none; }
+
+#searchbox{ 
+    /*float: left; */
+    white-space: nowrap;
+    text-align: center;
+    width: 22.5em;
+}
+
+.smallfont{
+  /*font-size: 1.2em;*/
+  margin-bottom: 10px;
+}
+
+.smpad{
+  padding: 1px 5px 1px 5px;
+  /*line-height: 1.3;*/
+}
+
+.navbar p { 
+    padding-top: 1px;
+}
+
+.navbar-bottom { width: 100%; }
+
+.navbar .nav > li > a {
+    color: #aaaaaa; 
+    text-shadow: none; }
+
+a{
+  color: #4105F2 !important;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle, 
+.navbar .nav li.dropdown.active > .dropdown-toggle, 
+.navbar .nav li.dropdown.open.active > .dropdown-toggle {
+    background-color: transparent;
+    color: #aaaaaa;
+}
+
+.navbar-inner {
+  background-color: #686868;
+  background-image: -moz-linear-gradient(top, #686868, #444444);
+  background-image: -ms-linear-gradient(top, #686868, #444444);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#686868), to(#444444));
+  background-image: -webkit-linear-gradient(top, #686868, #444444);
+  background-image: -o-linear-gradient(top, #686868, #444444);
+  background-image: linear-gradient(top, #686868, #444444);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#686868', endColorstr='#444444', GradientType=0);
+}
+
+.twitter-share-button { padding-top: 5px; }
+
+
+.dropdown-menu a {
+  display: inline;
+  padding: inherit;
+  clear: none;
+  font-weight: normal;
+  line-height: inherit;
+  color: #F7A900;
+} 
+
+.dropdown-menu p { 
+  margin-left: 5px;
+  color: #686868;
+}
+
+.dropdown-menu { 
+  min-width: 240px;
+  background-color: #f5f5f5;
+  padding: 5px;
+    margin-left: 20px;
+}
+
+code { color: #000000; }
