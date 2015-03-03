@@ -33,7 +33,7 @@ def add_page_to_index(index, url, content):
     words = text.split()
     for word in words:
         add_to_index(index, word, url)
-
+        
 def add_to_index(index, keyword, url):
     if keyword in index:
         index[keyword].append(url)
@@ -52,10 +52,10 @@ def get_page(url):
     else:
         print "Page not in cache: " + url
         try: 
-        	content = urllib.urlopen(url).read()
+            content = urllib.urlopen(url).read()
             return BeautifulSoup(content)
         except:
-        	return ""
-        	
+            return ""
+            
 cache = {}
 print crawl_web('http://www.udacity.com/cs101x/index.html')
