@@ -1,7 +1,10 @@
+# coding=utf8
+
+import urllib
+import robotexclusionrulesparser as rerp
 from bs4 import BeautifulSoup
 from urlparse import urlparse, urljoin
-import urllib
-import robotparser
+
 
 def crawl_web(seed): # returns index, graph of inlinks
     if is_udacity(seed):
@@ -20,17 +23,23 @@ def crawl_web(seed): # returns index, graph of inlinks
             outlinks = get_all_links(soup, url)
             graph[page] = outlinks
             add_new_links(tocrawl, outlinks)
+            #print tocrawl
             crawled.append(page)
+            #print crawled
     return index, graph
 
 def get_all_links(page, url):
     links = []
     page_url = urlparse(url)
+    #print "PAGE URL: " , page_url
     base = page_url[0] + '://' + page_url[1]
-    robots_url = base + 'robots.txt'
-    rp = robotparser.RobotFileParser()
+    #print "BASE URL: " , base
+    robots_url = urljoin(base, '/robots.txt')
+    #print "ROBOTS URL: " , robots_url
+    rp = rerp.RobotFileParserLookalike()
     rp.set_url(robots_url)
-    print "Page url: " , page_url
+    rp.read()
+    #print rp
     for link in page.find_all('a'):
         link_url = link.get('href')
         print "Found a link: ", link_url
@@ -79,23 +88,32 @@ def lookup(index, keyword):
         return None
 
 def get_page(url):
+    page_url = urlparse(url)
+    base = page_url[0] + '://' + page_url[1]
+    robots_url = base + '/robots.txt'
+    rp = rerp.RobotFileParserLookalike()
+    rp.set_url(robots_url)
+    rp.read()
+    if not rp.can_fetch('*', url):
+        print "Page off limits!"
+        return BeautifulSoup(""), ""
     if url in cache:
         return cache[url]
     else:
         print "Page not in cache: " + url
-        try: 
+        try:
             content = urllib.urlopen(url).read()
-            return BeautifulSoup(content)
+            return BeautifulSoup(content), url
         except:
             return BeautifulSoup(""), ""
 
-
 def is_udacity(url):
+    udacity_urls = ['www.udacity.com', 'www.udacity-forums.com']
     parsed_url = urlparse(url)
-    if parsed_url[1] == 'www.udacity.com':
+    if parsed_url[1] in udacity_urls:
         return True
     else:
         return False
             
 cache = {}
-print crawl_web('http://www.udacity.com/cs101x/index.html')
+print crawl_web('http://www.udacity-forums.com/')
