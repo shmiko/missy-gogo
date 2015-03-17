@@ -1,0 +1,97 @@
+[INFO     2015-03-04 12:38:11,907 bulkloader.py] Logging to bulkloader-log-20150304.123811
+[INFO     2015-03-04 12:38:11,907 bulkloader.py] Throttling transfers:
+[INFO     2015-03-04 12:38:11,907 bulkloader.py] Bandwidth: 250000 bytes/second
+[INFO     2015-03-04 12:38:11,907 bulkloader.py] HTTP connections: 8/second
+[INFO     2015-03-04 12:38:11,908 bulkloader.py] Entities inserted/fetched/modified: 20/second
+[INFO     2015-03-04 12:38:11,908 bulkloader.py] Batch Size: 10
+[INFO     2015-03-04 12:38:11,923 bulkloader.py] Opening database: bulkloader-progress-20150304.123811.sql3
+[DEBUG    2015-03-04 12:38:11,928 adaptive_thread_pool.py] [WorkerThread-0] WorkerThread: started
+[DEBUG    2015-03-04 12:38:11,929 adaptive_thread_pool.py] [WorkerThread-1] WorkerThread: started
+[DEBUG    2015-03-04 12:38:11,929 adaptive_thread_pool.py] [WorkerThread-2] WorkerThread: started
+[DEBUG    2015-03-04 12:38:11,929 adaptive_thread_pool.py] [WorkerThread-3] WorkerThread: started
+[DEBUG    2015-03-04 12:38:11,930 adaptive_thread_pool.py] [WorkerThread-4] WorkerThread: started
+[DEBUG    2015-03-04 12:38:11,930 adaptive_thread_pool.py] [WorkerThread-5] WorkerThread: started
+[DEBUG    2015-03-04 12:38:11,930 adaptive_thread_pool.py] [WorkerThread-6] WorkerThread: started
+[DEBUG    2015-03-04 12:38:11,931 adaptive_thread_pool.py] [WorkerThread-7] WorkerThread: started
+[DEBUG    2015-03-04 12:38:11,931 adaptive_thread_pool.py] [WorkerThread-8] WorkerThread: started
+[DEBUG    2015-03-04 12:38:11,931 adaptive_thread_pool.py] [WorkerThread-9] WorkerThread: started
+[DEBUG    2015-03-04 12:38:11,932 bulkloader.py] Configuring remote_api. url_path = /remote_api, servername = missy-go.appspot.com
+[DEBUG    2015-03-04 12:38:11,955 bulkloader.py] Bulkloader using app_id: missy-go
+[INFO     2015-03-04 12:38:11,955 bulkloader.py] Connecting to missy-go.appspot.com/remote_api
+[DEBUG    2015-03-04 12:38:27,752 bulkloader.py] [Thread-11] ProgressTrackerThread: started
+[DEBUG    2015-03-04 12:38:27,753 bulkloader.py] [Thread-12] DataSourceThread: started
+[INFO     2015-03-04 12:38:27,753 bulkloader.py] Starting import; maximum 10 entities per post
+[DEBUG    2015-03-04 12:38:27,757 bulkloader.py] [Thread-12] DataSourceThread: exiting
+[DEBUG    2015-03-04 12:38:27,757 bulkloader.py] Waiting for worker threads to finish...
+[DEBUG    2015-03-04 12:38:27,797 adaptive_thread_pool.py] [WorkerThread-0] Got work item [1-2]
+[ERROR    2015-03-04 12:38:28,335 adaptive_thread_pool.py] [WorkerThread-0] WorkerThread:
+Traceback (most recent call last):
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/adaptive_thread_pool.py", line 172, in WorkOnItems
+    status, instruction = item.PerformWork(self.__thread_pool)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/bulkloader.py", line 753, in PerformWork
+    transfer_time = self._TransferItem(thread_pool)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/bulkloader.py", line 924, in _TransferItem
+    self.request_manager.PostEntities(self.content)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/bulkloader.py", line 1452, in PostEntities
+    datastore.Put(entities)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/api/datastore.py", line 605, in Put
+    return PutAsync(entities, **kwargs).get_result()
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/datastore/datastore_rpc.py", line 899, in get_result
+    results = self.__rpcs[0].get_result()
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/api/apiproxy_stub_map.py", line 613, in get_result
+    return self.__get_result_hook(self)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/datastore/datastore_rpc.py", line 1827, in __put_hook
+    self.check_rpc_success(rpc)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/datastore/datastore_rpc.py", line 1342, in check_rpc_success
+    raise _ToDatastoreError(err)
+BadRequestError: app s~missy-go cannot access app missy-go's data
+[DEBUG    2015-03-04 12:38:28,344 adaptive_thread_pool.py] [WorkerThread-0] WorkerThread: exiting
+[INFO     2015-03-04 12:38:28,344 adaptive_thread_pool.py] [WorkerThread-7] Backing off due to errors: 1.0 seconds
+[INFO     2015-03-04 12:38:28,760 bulkloader.py] An error occurred. Shutting down...
+[DEBUG    2015-03-04 12:38:28,761 adaptive_thread_pool.py] [WorkerThread-9] WorkerThread: exiting
+[DEBUG    2015-03-04 12:38:28,761 adaptive_thread_pool.py] [WorkerThread-1] WorkerThread: exiting
+[DEBUG    2015-03-04 12:38:28,762 adaptive_thread_pool.py] [WorkerThread-2] WorkerThread: exiting
+[DEBUG    2015-03-04 12:38:28,762 adaptive_thread_pool.py] [WorkerThread-8] WorkerThread: exiting
+[DEBUG    2015-03-04 12:38:28,763 adaptive_thread_pool.py] [WorkerThread-3] WorkerThread: exiting
+[DEBUG    2015-03-04 12:38:28,763 adaptive_thread_pool.py] [WorkerThread-5] WorkerThread: exiting
+[DEBUG    2015-03-04 12:38:28,763 adaptive_thread_pool.py] [WorkerThread-4] WorkerThread: exiting
+[DEBUG    2015-03-04 12:38:28,764 adaptive_thread_pool.py] [WorkerThread-6] WorkerThread: exiting
+[DEBUG    2015-03-04 12:38:28,765 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2015-03-04 12:38:28,765 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2015-03-04 12:38:28,765 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2015-03-04 12:38:28,766 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2015-03-04 12:38:28,766 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2015-03-04 12:38:28,766 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2015-03-04 12:38:28,766 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2015-03-04 12:38:28,766 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2015-03-04 12:38:28,847 adaptive_thread_pool.py] [WorkerThread-7] WorkerThread: exiting
+[DEBUG    2015-03-04 12:38:28,848 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[DEBUG    2015-03-04 12:38:28,848 adaptive_thread_pool.py] Waiting for Anonymous_WorkerThread to exit
+[ERROR    2015-03-04 12:38:28,848 adaptive_thread_pool.py] Error in WorkerThread-0: app s~missy-go cannot access app missy-go's data
+[DEBUG    2015-03-04 12:38:28,848 adaptive_thread_pool.py] Traceback (most recent call last):
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/adaptive_thread_pool.py", line 172, in WorkOnItems
+    status, instruction = item.PerformWork(self.__thread_pool)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/bulkloader.py", line 753, in PerformWork
+    transfer_time = self._TransferItem(thread_pool)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/bulkloader.py", line 924, in _TransferItem
+    self.request_manager.PostEntities(self.content)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/bulkloader.py", line 1452, in PostEntities
+    datastore.Put(entities)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/api/datastore.py", line 605, in Put
+    return PutAsync(entities, **kwargs).get_result()
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/datastore/datastore_rpc.py", line 899, in get_result
+    results = self.__rpcs[0].get_result()
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/api/apiproxy_stub_map.py", line 613, in get_result
+    return self.__get_result_hook(self)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/datastore/datastore_rpc.py", line 1827, in __put_hook
+    self.check_rpc_success(rpc)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/datastore/datastore_rpc.py", line 1342, in check_rpc_success
+    raise _ToDatastoreError(err)
+BadRequestError: app s~missy-go cannot access app missy-go's data
+
+[DEBUG    2015-03-04 12:38:28,849 bulkloader.py] Waiting for progress_thread to terminate...
+[DEBUG    2015-03-04 12:38:28,888 bulkloader.py] [Thread-11] ProgressTrackerThread: exiting
+[DEBUG    2015-03-04 12:38:28,920 bulkloader.py] ... done.
+[INFO     2015-03-04 12:38:28,920 bulkloader.py] 2 entities total, 0 previously transferred
+[INFO     2015-03-04 12:38:28,920 bulkloader.py] 0 entities (3822 bytes) transferred in 17.0 seconds
+[INFO     2015-03-04 12:38:28,920 bulkloader.py] Some entities not successfully transferred

@@ -1,0 +1,42 @@
+[INFO     2015-03-04 12:16:27,195 bulkloader.py] Logging to bulkloader-log-20150304.121627
+[INFO     2015-03-04 12:16:27,196 bulkloader.py] Throttling transfers:
+[INFO     2015-03-04 12:16:27,196 bulkloader.py] Bandwidth: 250000 bytes/second
+[INFO     2015-03-04 12:16:27,196 bulkloader.py] HTTP connections: 8/second
+[INFO     2015-03-04 12:16:27,196 bulkloader.py] Entities inserted/fetched/modified: 20/second
+[INFO     2015-03-04 12:16:27,197 bulkloader.py] Batch Size: 10
+[INFO     2015-03-04 12:16:27,218 bulkloader.py] Opening database: bulkloader-progress-20150304.121627.sql3
+[DEBUG    2015-03-04 12:16:27,232 adaptive_thread_pool.py] [WorkerThread-0] WorkerThread: started
+[DEBUG    2015-03-04 12:16:27,234 adaptive_thread_pool.py] [WorkerThread-1] WorkerThread: started
+[DEBUG    2015-03-04 12:16:27,242 adaptive_thread_pool.py] [WorkerThread-2] WorkerThread: started
+[DEBUG    2015-03-04 12:16:27,247 adaptive_thread_pool.py] [WorkerThread-3] WorkerThread: started
+[DEBUG    2015-03-04 12:16:27,248 adaptive_thread_pool.py] [WorkerThread-4] WorkerThread: started
+[DEBUG    2015-03-04 12:16:27,249 adaptive_thread_pool.py] [WorkerThread-5] WorkerThread: started
+[DEBUG    2015-03-04 12:16:27,250 adaptive_thread_pool.py] [WorkerThread-6] WorkerThread: started
+[DEBUG    2015-03-04 12:16:27,251 adaptive_thread_pool.py] [WorkerThread-7] WorkerThread: started
+[DEBUG    2015-03-04 12:16:27,251 adaptive_thread_pool.py] [WorkerThread-8] WorkerThread: started
+[DEBUG    2015-03-04 12:16:27,252 adaptive_thread_pool.py] [WorkerThread-9] WorkerThread: started
+[DEBUG    2015-03-04 12:16:27,252 bulkloader.py] Configuring remote_api. url_path = /remote_api, servername = localhost:8088
+[DEBUG    2015-03-04 12:16:31,145 bulkloader.py] Bulkloader using app_id: dev~missy-go
+[INFO     2015-03-04 12:16:31,146 bulkloader.py] Connecting to localhost:8088/remote_api
+[ERROR    2015-03-04 12:16:31,171 bulkloader.py] Exception during authentication
+Traceback (most recent call last):
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/bulkloader.py", line 3466, in Run
+    self.request_manager.Authenticate()
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/bulkloader.py", line 1329, in Authenticate
+    remote_api_stub.MaybeInvokeAuthentication()
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/ext/remote_api/remote_api_stub.py", line 889, in MaybeInvokeAuthentication
+    datastore_stub._server.Send(datastore_stub._path, payload=None)
+  File "/Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/google/appengine/tools/appengine_rpc.py", line 426, in Send
+    f = self.opener.open(req)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 437, in open
+    response = meth(req, response)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 550, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 475, in error
+    return self._call_chain(*args)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 409, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py", line 558, in http_error_default
+    raise HTTPError(req.get_full_url(), code, msg, hdrs, fp)
+HTTPError: HTTP Error 404: Not Found
+[ERROR    2015-03-04 12:16:31,177 bulkloader.py] Authentication Failed: Incorrect credentials or unsupported authentication type (e.g. OpenId).

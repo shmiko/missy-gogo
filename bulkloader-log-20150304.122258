@@ -1,0 +1,7 @@
+[INFO     2015-03-04 12:22:58,426 bulkloader.py] Logging to bulkloader-log-20150304.122258
+[INFO     2015-03-04 12:22:58,427 bulkloader.py] Throttling transfers:
+[INFO     2015-03-04 12:22:58,427 bulkloader.py] Bandwidth: 250000 bytes/second
+[INFO     2015-03-04 12:22:58,427 bulkloader.py] HTTP connections: 8/second
+[INFO     2015-03-04 12:22:58,427 bulkloader.py] Entities inserted/fetched/modified: 20/second
+[INFO     2015-03-04 12:22:58,428 bulkloader.py] Batch Size: 10
+[INFO     2015-03-04 12:22:58,453 bulkloader.py] Opening database: bulkloader-progress-20150304.122258.sql3
